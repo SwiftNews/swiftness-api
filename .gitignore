@@ -15,3 +15,22 @@ boxes/*
 
 # Box storage for spec
 test/vagrant-spec/boxes/*.box
+
+# Elixir
+/_build
+/cover
+/deps
+erl_crash.dump
+*.ez
+*.beam
+
+# Node
+.npm
+
+
+# Misc
+
+.bash_history
+.cache
+.hex
+.mix
