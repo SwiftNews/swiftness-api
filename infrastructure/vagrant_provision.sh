@@ -66,7 +66,7 @@ nodejs
 # Install imagemagick
 apt-get install -y imagemagick
 
-echo y | su - vagrant -c 'mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez'
+echo y | su - vagrant -c 'mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez'
 
 # If seeds.exs exists we assume it is a Phoenix project
 if [ -f /vagrant/priv/repo/seeds.exs ]
