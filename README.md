@@ -1,0 +1,1 @@
+# swiftnews-api
