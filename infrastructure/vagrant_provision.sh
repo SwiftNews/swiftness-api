@@ -27,7 +27,7 @@ inotify-tools
 # Install Erlang
 echo "deb http://packages.erlang-solutions.com/ubuntu trusty contrib" >> /etc/apt/sources.list && \
 apt-key adv --fetch-keys http://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc && \
-apt-get -qq update # && \
+apt-get -qq update
 apt-get install -y \
 erlang=1:$ERLANG_VERSION \
 
@@ -47,7 +47,8 @@ su - vagrant -c '/usr/local/bin/mix local.hex --force && /usr/local/bin/mix loca
 # Postgres
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
 wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
-apt-get -y install postgresql-$POSTGRES_VERSION postgresql-contrib-$POSTGRES_VERSION
+apt-get -qq update
+apt-get -y install postgresql=$POSTGRES_VERSION postgresql-contrib=$POSTGRES_VERSION
 
 PG_CONF="/etc/postgresql/$POSTGRES_VERSION/main/postgresql.conf"
 echo "client_encoding = utf8" >> "$PG_CONF" # Set client encoding to UTF8
