@@ -5,7 +5,9 @@ defmodule SwiftNewsWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", SwiftNewsWeb do
+  scope "/", SwiftNewsWeb do
     pipe_through :api
+
+    get "/", StatusController, :index
   end
 end
