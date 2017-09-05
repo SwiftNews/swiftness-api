@@ -12,8 +12,8 @@ config :swift_news,
 # Configures the endpoint
 config :swift_news, SwiftNewsWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "QODxSUucFEJM1XYHdCXSH/3h0DQiOWqE0tvA2UotxL7hJ/K+ifGyF2Az0r38zzv8",
-  render_errors: [view: SwiftNewsWeb.ErrorView, accepts: ~w(html json)],
+  secret_key_base: "Cw3zeYsITA4htK9lIDDmNy5HrtRocVrSTj8n+GGycask3F8HWXZW0ZdxWBudzmND",
+  render_errors: [view: SwiftNewsWeb.ErrorView, accepts: ~w(json)],
   pubsub: [name: SwiftNews.PubSub,
            adapter: Phoenix.PubSub.PG2]
 

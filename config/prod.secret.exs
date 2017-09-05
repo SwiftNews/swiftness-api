@@ -9,7 +9,7 @@ use Mix.Config
 # kept out of version control and might be hard to recover
 # or recreate for your teammates (or yourself later on).
 config :swift_news, SwiftNewsWeb.Endpoint,
-  secret_key_base: "FUrjzhXupMA54EaOhTtOH0nAw2Wz5SijPaHsdorimDFqyjA6s05bIl4XSZTUlm2x"
+  secret_key_base: "SonYP66F6J7CvDGaQoa6X0NtBOcenkR1maP00PXMuDBtxzwg0i6Ry1Gw8SxNY5b0"
 
 # Configure your database
 config :swift_news, SwiftNews.Repo,
