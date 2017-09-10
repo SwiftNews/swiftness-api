@@ -1,4 +1,4 @@
-defmodule SwiftNewsWeb.StatusController do
+defmodule SwiftNewsWeb.HealthCheckController do
     use SwiftNewsWeb, :controller
 
     def index(conn, _params) do

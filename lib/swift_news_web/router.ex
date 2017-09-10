@@ -8,6 +8,8 @@ defmodule SwiftNewsWeb.Router do
   scope "/", SwiftNewsWeb do
     pipe_through :api
 
-    get "/", StatusController, :index
+    get "/", HealthCheckController, :index
+
+    post "/user/", UserController, :create
   end
 end
