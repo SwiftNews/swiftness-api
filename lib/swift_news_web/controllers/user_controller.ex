@@ -3,7 +3,8 @@ defmodule SwiftNewsWeb.UserController do
 
     def create(conn, %{"email" => email,
                     "password" => password}) do
-        changeset = SwiftNews.User.changeset(%SwiftNews.User{}, %{email: email, password: password, api_token: "test"})
+        hashed_password = SwiftNews.Authentication.hash_password(password)
+        changeset = SwiftNews.User.changeset(%SwiftNews.User{}, %{email: email, password: hashed_password, api_token: "test"})
         case SwiftNews.Repo.insert(changeset) do
         {:ok, person} ->
             conn |>
