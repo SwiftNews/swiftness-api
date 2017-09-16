@@ -44,3 +44,7 @@ config :swift_news, SwiftNews.Repo,
   database: "swift_news_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :swift_news, SwiftNews.Guardian,
+  issuer: "swift_news",
+  secret_key: "5T/D1OWYVYhpmd9szfBI6OhLo/naKyWbzQnwbjLNfKQtWbIiPbSAwHjSccFdhdYa"

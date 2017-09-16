@@ -10,6 +10,7 @@ defmodule SwiftNewsWeb.Router do
 
     get "/", HealthCheckController, :index
 
-    post "/user/", UserController, :create
+    post "/user/", AuthController, :create
+    post "/auth/", AuthController, :login
   end
 end

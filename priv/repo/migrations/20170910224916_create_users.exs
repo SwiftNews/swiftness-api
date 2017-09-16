@@ -5,10 +5,8 @@ defmodule SwiftNews.Repo.Migrations.CreateUser do
     create table(:users) do
       add :email, :string
       add :password, :string
-      add :api_token, :string
     end
 
     create index(:users, [:email], unique: true)
-    create index(:users, [:api_token])
   end
 end
