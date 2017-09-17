@@ -4,7 +4,7 @@ defmodule SwiftNews.Repo.Migrations.CreateUser do
   def change do
     create table(:users) do
       add :email, :string
-      add :password, :string
+      add :hashed_password, :string
     end
 
     create index(:users, [:email], unique: true)
