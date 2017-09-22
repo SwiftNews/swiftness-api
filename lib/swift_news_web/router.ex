@@ -12,5 +12,7 @@ defmodule SwiftNewsWeb.Router do
 
     post "/user/", AuthController, :create
     post "/auth/", AuthController, :login
+
+    post "/story/", StoryController, :create
   end
 end

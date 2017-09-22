@@ -7,6 +7,7 @@ defmodule SwiftNews.User do
     field :email, :string
     field :hashed_password, :string
     field :password, :string, virtual: true
+    has_many :stories, SwiftNews.Story
   end
 
   def changeset(user, params \\ %{}) do
