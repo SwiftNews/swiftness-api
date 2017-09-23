@@ -49,7 +49,7 @@ defmodule SwiftNews.Guardian do
   def subject_for_token(resource, _claims) do
     {:ok, to_string(resource)}
   end
-  
+
   def resource_from_claims(claims) do
     {:ok, claims["sub"]}
   end

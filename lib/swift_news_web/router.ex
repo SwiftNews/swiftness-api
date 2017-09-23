@@ -6,8 +6,12 @@ defmodule SwiftNewsWeb.Router do
   end
 
   pipeline :authenticated_api do
-    plug :accepts, ["json"]
-    plug :user_authenticated
+    plug Guardian.Plug.Pipeline, module: SwiftNews.Guardian,
+                          error_handler: SwiftNews.AuthErrorHandler 
+    plug Guardian.Plug.VerifySession
+    plug Guardian.Plug.VerifyHeader, realm: "Bearer"
+    plug Guardian.Plug.LoadResource
+    plug Guardian.Plug.EnsureAuthenticated, handler: SwiftNews.AuthErrorHandler 
   end
 
   scope "/", SwiftNewsWeb do
@@ -17,11 +21,10 @@ defmodule SwiftNewsWeb.Router do
 
     post "/user/", AuthController, :create
     post "/auth/", AuthController, :login
-
   end
 
   scope "/", SwiftNewsWeb do
-    pipe_through :authenticated_api
+    pipe_through [:api, :authenticated_api]
 
     post "/story/", StoryController, :create    
   end
