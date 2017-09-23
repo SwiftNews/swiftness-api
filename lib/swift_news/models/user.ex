@@ -13,9 +13,9 @@ defmodule SwiftNews.User do
   def changeset(user, params \\ %{}) do
     user
     |> cast(params, [:email, :hashed_password, :password])
+    |> unique_constraint(:email)    
     |> validate_required([:email, :hashed_password, :password])
     |> validate_format(:email, ~r/@/)
     |> validate_length(:password, min: 3)
-    |> unique_constraint(:email)
   end
 end

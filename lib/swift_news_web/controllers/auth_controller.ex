@@ -1,11 +1,9 @@
 defmodule SwiftNewsWeb.AuthController do
   use SwiftNewsWeb, :controller
 
-  import Ecto.Query
   import SwiftNews.ApiUtil
 
   alias Comeonin.Bcrypt
-  alias SwiftNews.User
   alias SwiftNews.Guardian.Plug
   
   def create(conn, %{"email" => email,
@@ -15,10 +13,13 @@ defmodule SwiftNewsWeb.AuthController do
       conn = Plug.sign_in(conn, user.email)
       jwt = Plug.current_token(conn)
 
-      conn |> render("auth.json", %{jwt: jwt, user: user})
+      conn 
+      |> render("auth.json", %{jwt: jwt, user: user})
 
-    {:error, _} ->
-      conn |> send_error(400, "Invalid email or password")
+    {:error, changeset} ->
+      conn 
+      |> put_status(400)
+      |> render(SwiftNewsWeb.ErrorView, "error.json", %{changeset: changeset})
     end
   end
 
@@ -27,7 +28,8 @@ defmodule SwiftNewsWeb.AuthController do
     user = SwiftNews.DataAccess.Users.find_by_email(email)
 
     if is_nil(user) do
-      conn |> send_error(400, "No user found with that email.")
+      conn 
+      |> send_error(400, "No user found with that email.")
     else
       if Bcrypt.checkpw(password, user.hashed_password) do
         conn = Plug.sign_in(conn, user.email)
