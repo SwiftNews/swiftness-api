@@ -5,6 +5,13 @@ defmodule SwiftNewsWeb.StoryController do
 
   require Logger
 
+  def index(conn, _params) do
+    stories = SwiftNews.Story
+              |> SwiftNews.Repo.all
+    conn
+    |> render(SwiftNewsWeb.StoryView, "stories.json", %{stories: stories})
+  end
+
   def create(conn, %{"title" => title,
                   "body" => body}) do
     user = SwiftNews.DataAccess.Users.find_by_conn(conn) 

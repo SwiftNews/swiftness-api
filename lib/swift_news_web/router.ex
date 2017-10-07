@@ -21,6 +21,8 @@ defmodule SwiftNewsWeb.Router do
 
     post "/user/", AuthController, :create
     post "/auth/", AuthController, :login
+
+    get "/stories/", StoryController, :index
   end
 
   scope "/", SwiftNewsWeb do
