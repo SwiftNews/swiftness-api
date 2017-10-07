@@ -9,7 +9,7 @@ postgres-server:
 
   pkg.installed:
     - refresh: True
-    - version: 9.6+184.pgdg14.04+1
+    - version: 10+186.pgdg14.04+1
     - names:
       - postgresql
       - postgresql-contrib
