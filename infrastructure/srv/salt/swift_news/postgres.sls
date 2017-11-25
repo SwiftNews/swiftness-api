@@ -9,7 +9,7 @@ postgres-server:
 
   pkg.installed:
     - refresh: True
-    - version: 10+186.pgdg14.04+1
+    - version: 9.3+154ubuntu1.1
     - names:
       - postgresql
       - postgresql-contrib
